@@ -1,7 +1,7 @@
 from customtkinter import *
 
 class Navigation(CTkFrame):
-    def __init__(self, parent: App, **kwargs):
+    def __init__(self, parent, **kwargs):
         """
         Initializes the Navigation object.
 

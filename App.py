@@ -1,6 +1,7 @@
 from customtkinter import CTk
-from constants import *
 from Navigation import Navigation
+from Canvas import Canvas
+from typing import Tuple, Literal
 
 class App(CTk):
     def __init__(self) -> None:
@@ -12,6 +13,7 @@ class App(CTk):
         window_height = 720
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
+        BOTTOM_PADDING_ONLY: Tuple[Literal[0], int] = (0, 5)
 
         x_position = (screen_width - window_width) // 2
         y_position = (screen_height - window_height) // 2
@@ -25,6 +27,9 @@ class App(CTk):
         
         navigation = Navigation(parent=self)
         navigation.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
+        
+        self.canvas: Canvas = Canvas(self)
+        self.canvas.grid(row=0, column=1, padx=BOTTOM_PADDING_ONLY, pady=5, sticky="nsew")
         
         
 if __name__ == '__main__':
