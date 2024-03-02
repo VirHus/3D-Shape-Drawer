@@ -1,4 +1,5 @@
 import pyopengltk
+from OpenGL.GL import *
 
 class Canvas(pyopengltk.OpenGLFrame):
     
@@ -11,6 +12,16 @@ class Canvas(pyopengltk.OpenGLFrame):
             **kwargs: Additional keyword arguments to pass to the parent class initializer.
         """
         super().__init__(parent, *args, **kwargs)
-        
-        Canvas.width = self.winfo_width()
-        Canvas.height = self.winfo_height()
+        Canvas.width = 400
+        Canvas.height = 400
+        # Main frame
+        self.parent = parent
+         # Set background color
+        self.bg_color = (0.8, 0.8, 0.8, 1.0)  
+        self.configure(bg="black")
+
+    def initgl(self):
+        """
+        Initializes OpenGL
+        """
+        glClearColor(*self.bg_color)  # Set the clear color to the background color
